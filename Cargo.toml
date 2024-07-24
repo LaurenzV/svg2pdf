@@ -32,6 +32,7 @@ resvg = { version = "0.42.0", default-features = false }
 subsetter = {git = "https://github.com/typst/subsetter", rev = "4e0058b"}
 ttf-parser = { version = "0.21.1" }
 siphasher = { version = "1.0.1"}
+krilla = {path = "../krilla"}
 
 [package]
 name = "svg2pdf"
@@ -69,3 +70,7 @@ resvg = { workspace = true, optional = true }
 subsetter = { workspace = true, optional = true }
 ttf-parser = { workspace = true, optional = true }
 siphasher = { workspace = true, optional = true }
+krilla = {workspace = true}
+
+[patch.crates-io]
+tiny-skia-path = {path = "../tiny-skia/path"}

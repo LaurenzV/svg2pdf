@@ -233,6 +233,20 @@ name = "bytemuck"
 version = "1.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5d6d68c57235a3a081186990eca2867354726650f42f7516ca50c28d6281fd15"
+dependencies = [
+ "bytemuck_derive",
+]
+
+[[package]]
+name = "bytemuck_derive"
+version = "1.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1ee891b04274a59bd38b412188e24b849617b2e45a0fd8d057deb63e7403761b"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "byteorder"
@@ -550,6 +564,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "font-types"
+version = "0.5.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "34fd7136aca682873d859ef34494ab1a7d3f57ecd485ed40eb6437ee8c85aa29"
+dependencies = [
+ "bytemuck",
+]
+
+[[package]]
 name = "fontconfig-parser"
 version = "0.5.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -790,6 +813,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "krilla"
+version = "0.1.0"
+dependencies = [
+ "image",
+ "miniz_oxide",
+ "once_cell",
+ "pdf-writer 0.10.0",
+ "siphasher",
+ "skrifa",
+ "tiny-skia-path",
+ "usvg",
+]
+
+[[package]]
 name = "kurbo"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -932,9 +969,9 @@ checksum = "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a"
 
 [[package]]
 name = "miniz_oxide"
-version = "0.7.2"
+version = "0.7.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9d811f3e15f28568be3407c8e7fdb6514c1cda3cb30683f15b6a1a1dc4ea14a7"
+checksum = "b8a240ddb74feaf34a79a7add65a741f3167852fba007066dcac1ca548d89c08"
 dependencies = [
  "adler",
  "simd-adler32",
@@ -1046,6 +1083,16 @@ name = "paste"
 version = "1.0.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "de3145af08024dea9fa9914f381a17b8fc6034dfb00f3a84013f7ff43f29ed4c"
+
+[[package]]
+name = "pdf-writer"
+version = "0.10.0"
+dependencies = [
+ "bitflags 2.5.0",
+ "itoa",
+ "memchr",
+ "ryu",
+]
 
 [[package]]
 name = "pdf-writer"
@@ -1292,6 +1339,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "read-fonts"
+version = "0.19.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e8b8af39d1f23869711ad4cea5e7835a20daa987f80232f7f2a2374d648ca64d"
+dependencies = [
+ "bytemuck",
+ "font-types",
+]
+
+[[package]]
 name = "redox_syscall"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1500,6 +1557,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "56199f7ddabf13fe5074ce809e7d3f42b42ae711800501b5b16ea82ad029c39d"
 
 [[package]]
+name = "skrifa"
+version = "0.19.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0ab45fb68b53576a43d4fc0e9ec8ea64e29a4d2cc7f44506964cb75f288222e9"
+dependencies = [
+ "bytemuck",
+ "read-fonts",
+]
+
+[[package]]
 name = "slotmap"
 version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1549,10 +1616,11 @@ version = "0.11.0"
 dependencies = [
  "fontdb",
  "image",
+ "krilla",
  "log",
  "miniz_oxide",
  "once_cell",
- "pdf-writer",
+ "pdf-writer 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "resvg",
  "siphasher",
  "subsetter",
@@ -1572,7 +1640,7 @@ dependencies = [
  "fontdb",
  "log",
  "miniz_oxide",
- "pdf-writer",
+ "pdf-writer 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "svg2pdf",
  "termcolor",
  "usvg",
@@ -1586,7 +1654,7 @@ dependencies = [
  "image",
  "once_cell",
  "oxipng",
- "pdf-writer",
+ "pdf-writer 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "pdfium-render",
  "svg2pdf",
  "usvg",
@@ -1696,8 +1764,6 @@ dependencies = [
 [[package]]
 name = "tiny-skia-path"
 version = "0.11.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9c9e7fc0c2e86a30b117d0462aa261b72b7a99b7ebd7deb3a14ceda95c5bdc93"
 dependencies = [
  "arrayref",
  "bytemuck",

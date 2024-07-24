@@ -58,6 +58,7 @@ mod util;
 
 use std::fmt;
 use std::fmt::{Display, Formatter};
+use krilla::serialize::{PageSerialize, SerializeSettings};
 pub use usvg;
 
 use crate::ConversionError::UnknownError;
@@ -190,60 +191,8 @@ pub fn to_pdf(
     conversion_options: ConversionOptions,
     page_options: PageOptions,
 ) -> Result<Vec<u8>> {
-    let mut ctx = Context::new(tree, conversion_options);
-    let mut pdf = Pdf::new();
-
-    let dpi_ratio = 72.0 / page_options.dpi;
-    let dpi_transform = Transform::from_scale(dpi_ratio, dpi_ratio);
-    let page_size =
-        Size::from_wh(tree.size().width() * dpi_ratio, tree.size().height() * dpi_ratio)
-            .ok_or(UnknownError)?;
-
-    let catalog_ref = ctx.alloc_ref();
-    let page_tree_ref = ctx.alloc_ref();
-    let page_ref = ctx.alloc_ref();
-    let content_ref = ctx.alloc_ref();
-
-    pdf.catalog(catalog_ref).pages(page_tree_ref);
-    pdf.pages(page_tree_ref).count(1).kids([page_ref]);
-
-    // Generate main content
-    let mut rc = ResourceContainer::new();
-    let mut content = Content::new();
-    content.save_state();
-    content.transform(dpi_transform.to_pdf_transform());
-    tree_to_stream(tree, &mut pdf, &mut content, &mut ctx, &mut rc)?;
-    content.restore_state();
-    let content_stream = ctx.finish_content(content);
-    let mut stream = pdf.stream(content_ref, &content_stream);
-
-    if ctx.options.compress {
-        stream.filter(Filter::FlateDecode);
-    }
-    stream.finish();
-
-    let mut page = pdf.page(page_ref);
-    let mut page_resources = page.resources();
-    rc.finish(&mut page_resources);
-    page_resources.finish();
-
-    page.media_box(page_size.to_non_zero_rect(0.0, 0.0).to_pdf_rect());
-    page.parent(page_tree_ref);
-    page.group()
-        .transparency()
-        .isolated(true)
-        .knockout(false)
-        .color_space()
-        .icc_based(ctx.srgb_ref());
-    page.contents(content_ref);
-    page.finish();
-
-    ctx.write_global_objects(&mut pdf)?;
-
-    let document_info_id = ctx.alloc_ref();
-    pdf.document_info(document_info_id).producer(TextStr("svg2pdf"));
-
-    Ok(pdf.finish())
+    let canvas = krilla::svg::render(tree);
+    Ok(canvas.serialize(SerializeSettings::default()).finish())
 }
 
 /// Convert a [Tree] into a [`Chunk`].
