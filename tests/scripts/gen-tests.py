@@ -57,8 +57,6 @@ IGNORE_TESTS = {
     # The following test cases should work but are not implemented in svg2pdf yet.
     "svg/resvg/paint-servers/linearGradient/attributes-via-xlink-href-complex-order.svg": NO_REFLECT,
     "svg/resvg/paint-servers/linearGradient/attributes-via-xlink-href-from-radialGradient.svg": NO_REFLECT,
-    "svg/resvg/paint-servers/linearGradient/spreadMethod=reflect.svg": NO_REFLECT,
-    "svg/resvg/paint-servers/linearGradient/spreadMethod=repeat.svg": NO_REPEAT,
     "svg/resvg/paint-servers/radialGradient/attributes-via-xlink-href-complex-order.svg":NO_REFLECT,
     "svg/resvg/paint-servers/radialGradient/attributes-via-xlink-href-from-linearGradient.svg": NO_REFLECT,
     "svg/resvg/paint-servers/radialGradient/spreadMethod=reflect.svg": NO_REFLECT,

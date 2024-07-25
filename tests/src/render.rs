@@ -531,8 +531,7 @@ pub fn run_test(test_name: &str) -> i32 {
 #[test] fn resvg_paint_servers_linearGradient_single_stop() {assert_eq!(run_test("resvg/paint-servers/linearGradient/single-stop"), 0)}
 #[test] fn resvg_paint_servers_linearGradient_invalid_gradientTransform() {assert_eq!(run_test("resvg/paint-servers/linearGradient/invalid-gradientTransform"), 0)}
 #[test] fn resvg_paint_servers_linearGradient_stops_via_xlink_href_from_rect() {assert_eq!(run_test("resvg/paint-servers/linearGradient/stops-via-xlink-href-from-rect"), 0)}
-// spreadMethod repeat not supported
-#[ignore] #[test] fn resvg_paint_servers_linearGradient_spreadMethod_repeat() {assert_eq!(run_test("resvg/paint-servers/linearGradient/spreadMethod=repeat"), 0)}
+#[test] fn resvg_paint_servers_linearGradient_spreadMethod_repeat() {assert_eq!(run_test("resvg/paint-servers/linearGradient/spreadMethod=repeat"), 0)}
 #[test] fn resvg_paint_servers_linearGradient_unresolved_xlink_href() {assert_eq!(run_test("resvg/paint-servers/linearGradient/unresolved-xlink-href"), 0)}
 #[test] fn resvg_paint_servers_linearGradient_invalid_xlink_href() {assert_eq!(run_test("resvg/paint-servers/linearGradient/invalid-xlink-href"), 0)}
 #[test] fn resvg_paint_servers_linearGradient_attributes_via_xlink_href_from_rect() {assert_eq!(run_test("resvg/paint-servers/linearGradient/attributes-via-xlink-href-from-rect"), 0)}
@@ -541,8 +540,7 @@ pub fn run_test(test_name: &str) -> i32 {
 #[ignore] #[test] fn resvg_paint_servers_linearGradient_attributes_via_xlink_href_complex_order() {assert_eq!(run_test("resvg/paint-servers/linearGradient/attributes-via-xlink-href-complex-order"), 0)}
 #[test] fn resvg_paint_servers_linearGradient_gradientUnits_userSpaceOnUse_with_percent() {assert_eq!(run_test("resvg/paint-servers/linearGradient/gradientUnits=userSpaceOnUse-with-percent"), 0)}
 #[test] fn resvg_paint_servers_linearGradient_self_recursive_xlink_href() {assert_eq!(run_test("resvg/paint-servers/linearGradient/self-recursive-xlink-href"), 0)}
-// spreadMethod reflect not supported
-#[ignore] #[test] fn resvg_paint_servers_linearGradient_spreadMethod_reflect() {assert_eq!(run_test("resvg/paint-servers/linearGradient/spreadMethod=reflect"), 0)}
+#[test] fn resvg_paint_servers_linearGradient_spreadMethod_reflect() {assert_eq!(run_test("resvg/paint-servers/linearGradient/spreadMethod=reflect"), 0)}
 #[test] fn resvg_paint_servers_linearGradient_default_attributes() {assert_eq!(run_test("resvg/paint-servers/linearGradient/default-attributes"), 0)}
 #[test] fn resvg_paint_servers_stop_color_simple_case() {assert_eq!(run_test("resvg/paint-servers/stop-color/simple-case"), 0)}
 #[test] fn resvg_paint_servers_pattern_display_none_on_child() {assert_eq!(run_test("resvg/paint-servers/pattern/display=none-on-child"), 0)}
