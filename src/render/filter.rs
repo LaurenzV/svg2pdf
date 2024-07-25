@@ -51,6 +51,7 @@ pub fn render(
     );
 
     let encoded_image = pixmap.encode_png().map_err(|_| UnknownError)?;
+    std::fs::write("img.png", &encoded_image);
 
     image::render(
         true,

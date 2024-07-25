@@ -820,8 +820,10 @@ dependencies = [
  "miniz_oxide",
  "once_cell",
  "pdf-writer 0.10.0",
+ "resvg",
  "siphasher",
  "skrifa",
+ "tiny-skia",
  "tiny-skia-path",
  "usvg",
 ]
@@ -1764,6 +1766,7 @@ dependencies = [
 [[package]]
 name = "tiny-skia-path"
 version = "0.11.4"
+source = "git+https://github.com/RazrFalcon/tiny-skia?rev=eec0a47#eec0a4701a8413759a3dd51b443b8851ce4c546a"
 dependencies = [
  "arrayref",
  "bytemuck",

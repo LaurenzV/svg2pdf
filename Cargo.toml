@@ -73,4 +73,4 @@ siphasher = { workspace = true, optional = true }
 krilla = {workspace = true}
 
 [patch.crates-io]
-tiny-skia-path = {path = "../tiny-skia/path"}
+tiny-skia-path = {git = "https://github.com/RazrFalcon/tiny-skia", rev="eec0a47"}

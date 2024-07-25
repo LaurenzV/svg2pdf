@@ -56,9 +56,9 @@ comprehensive list.
 mod render;
 mod util;
 
+use krilla::serialize::{PageSerialize, SerializeSettings};
 use std::fmt;
 use std::fmt::{Display, Formatter};
-use krilla::serialize::{PageSerialize, SerializeSettings};
 pub use usvg;
 
 use crate::ConversionError::UnknownError;
