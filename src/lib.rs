@@ -191,7 +191,7 @@ pub fn to_pdf(
     conversion_options: ConversionOptions,
     page_options: PageOptions,
 ) -> Result<Vec<u8>> {
-    let canvas = krilla::svg::render(tree);
+    let canvas = krilla::svg::render_tree(tree);
     Ok(canvas.serialize(SerializeSettings::default()).finish())
 }
 
