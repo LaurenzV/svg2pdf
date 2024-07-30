@@ -822,6 +822,7 @@ dependencies = [
  "resvg",
  "siphasher",
  "skrifa",
+ "subsetter 0.11.0",
  "tiny-skia",
  "tiny-skia-path",
  "usvg",
@@ -1605,6 +1606,10 @@ checksum = "7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70948a3f0b778838c5fb4f"
 [[package]]
 name = "subsetter"
 version = "0.11.0"
+
+[[package]]
+name = "subsetter"
+version = "0.11.0"
 source = "git+https://github.com/typst/subsetter?rev=4e0058b#4e0058b4b9a0948a5f79894111948d95e59ba350"
 
 [[package]]
@@ -1620,7 +1625,7 @@ dependencies = [
  "pdf-writer 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "resvg",
  "siphasher",
- "subsetter",
+ "subsetter 0.11.0 (git+https://github.com/typst/subsetter?rev=4e0058b)",
  "tiny-skia",
  "ttf-parser",
  "unicode-properties",

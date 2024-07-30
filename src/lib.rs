@@ -56,9 +56,11 @@ comprehensive list.
 mod render;
 mod util;
 
-use krilla::serialize::{PageSerialize, SerializeSettings};
+use krilla::serialize::{PageSerialize, SerializerContext, SerializeSettings};
 use std::fmt;
 use std::fmt::{Display, Formatter};
+use krilla::canvas::Page;
+use krilla::stream::StreamBuilder;
 pub use usvg;
 
 use crate::ConversionError::UnknownError;
@@ -191,8 +193,11 @@ pub fn to_pdf(
     conversion_options: ConversionOptions,
     page_options: PageOptions,
 ) -> Result<Vec<u8>> {
-    let canvas = krilla::svg::render_tree(tree);
-    Ok(canvas.serialize(SerializeSettings::default()).finish())
+    let mut page = Page::new(tree.size());
+    let mut stream_builder = page.builder();
+     krilla::svg::render_tree(tree, &mut stream_builder);
+    let stream = stream_builder.finish();
+    Ok(stream.serialize(SerializeSettings::default(), tree.size()).finish())
 }
 
 /// Convert a [Tree] into a [`Chunk`].
