@@ -566,6 +566,7 @@ dependencies = [
 [[package]]
 name = "font-types"
 version = "0.6.0"
+source = "git+https://github.com/LaurenzV/fontations?rev=0ed7955#0ed7955144921786be33b38b0c4530f8c4c8a316"
 dependencies = [
  "bytemuck",
 ]
@@ -818,11 +819,11 @@ dependencies = [
  "image",
  "miniz_oxide",
  "once_cell",
- "pdf-writer 0.10.0",
+ "pdf-writer",
  "resvg",
  "siphasher",
  "skrifa",
- "subsetter 0.11.0",
+ "subsetter 0.11.0 (git+https://github.com/LaurenzV/subsetter?rev=c178d05)",
  "tiny-skia",
  "tiny-skia-path",
  "usvg",
@@ -1089,16 +1090,6 @@ checksum = "de3145af08024dea9fa9914f381a17b8fc6034dfb00f3a84013f7ff43f29ed4c"
 [[package]]
 name = "pdf-writer"
 version = "0.10.0"
-dependencies = [
- "bitflags 2.5.0",
- "itoa",
- "memchr",
- "ryu",
-]
-
-[[package]]
-name = "pdf-writer"
-version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "af6a7882fda7808481d43c51cadfc3ec934c6af72612a1fe6985ce329a2f0469"
 dependencies = [
@@ -1343,6 +1334,7 @@ dependencies = [
 [[package]]
 name = "read-fonts"
 version = "0.20.0"
+source = "git+https://github.com/LaurenzV/fontations?rev=0ed7955#0ed7955144921786be33b38b0c4530f8c4c8a316"
 dependencies = [
  "bytemuck",
  "font-types",
@@ -1389,17 +1381,15 @@ checksum = "adad44e29e4c806119491a7f06f03de4d1af22c3a680dd47f1e6e179439d1f56"
 [[package]]
 name = "resvg"
 version = "0.42.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "944d052815156ac8fa77eaac055220e95ba0b01fa8887108ca710c03805d9051"
 dependencies = [
  "gif",
- "jpeg-decoder",
  "log",
  "pico-args",
  "rgb",
  "svgtypes",
  "tiny-skia",
  "usvg",
+ "zune-jpeg",
 ]
 
 [[package]]
@@ -1559,6 +1549,7 @@ checksum = "56199f7ddabf13fe5074ce809e7d3f42b42ae711800501b5b16ea82ad029c39d"
 [[package]]
 name = "skrifa"
 version = "0.20.0"
+source = "git+https://github.com/LaurenzV/fontations?rev=0ed7955#0ed7955144921786be33b38b0c4530f8c4c8a316"
 dependencies = [
  "bytemuck",
  "read-fonts",
@@ -1606,11 +1597,12 @@ checksum = "7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70948a3f0b778838c5fb4f"
 [[package]]
 name = "subsetter"
 version = "0.11.0"
+source = "git+https://github.com/typst/subsetter?rev=4e0058b#4e0058b4b9a0948a5f79894111948d95e59ba350"
 
 [[package]]
 name = "subsetter"
 version = "0.11.0"
-source = "git+https://github.com/typst/subsetter?rev=4e0058b#4e0058b4b9a0948a5f79894111948d95e59ba350"
+source = "git+https://github.com/LaurenzV/subsetter?rev=c178d05#c178d05c64f151df9166761d7b6b07bd25aa8716"
 
 [[package]]
 name = "svg2pdf"
@@ -1622,7 +1614,7 @@ dependencies = [
  "log",
  "miniz_oxide",
  "once_cell",
- "pdf-writer 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "pdf-writer",
  "resvg",
  "siphasher",
  "subsetter 0.11.0 (git+https://github.com/typst/subsetter?rev=4e0058b)",
@@ -1642,7 +1634,7 @@ dependencies = [
  "fontdb",
  "log",
  "miniz_oxide",
- "pdf-writer 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "pdf-writer",
  "svg2pdf",
  "termcolor",
  "usvg",
@@ -1656,7 +1648,7 @@ dependencies = [
  "image",
  "once_cell",
  "oxipng",
- "pdf-writer 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "pdf-writer",
  "pdfium-render",
  "svg2pdf",
  "usvg",
@@ -1879,8 +1871,6 @@ checksum = "b1d386ff53b415b7fe27b50bb44679e2cc4660272694b7b6f3326d8480823a94"
 [[package]]
 name = "usvg"
 version = "0.42.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b84ea542ae85c715f07b082438a4231c3760539d902e11d093847a0b22963032"
 dependencies = [
  "base64",
  "data-url",

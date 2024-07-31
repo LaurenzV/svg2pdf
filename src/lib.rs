@@ -197,7 +197,8 @@ pub fn to_pdf(
     let mut stream_builder = page.builder();
      krilla::svg::render_tree(tree, &mut stream_builder);
     let stream = stream_builder.finish();
-    Ok(stream.serialize(SerializeSettings::default(), tree.size()).finish())
+    let serialize_context = page.finish();
+    Ok(stream.serialize(serialize_context, tree.size()).finish())
 }
 
 /// Convert a [Tree] into a [`Chunk`].
