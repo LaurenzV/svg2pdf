@@ -81,6 +81,7 @@ pub fn render(
         }
         // SVGs just get rendered recursively.
         ImageKind::SVG(tree) => create_svg_image(tree, chunk, ctx, rc)?,
+        _ => unimplemented!()
     };
 
     let view_box = view_box.unwrap_or(

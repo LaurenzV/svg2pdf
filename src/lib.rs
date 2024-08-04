@@ -59,6 +59,7 @@ mod util;
 use krilla::serialize::{PageSerialize, SerializerContext, SerializeSettings};
 use std::fmt;
 use std::fmt::{Display, Formatter};
+use fontdb::Database;
 use krilla::canvas::Page;
 use krilla::stream::StreamBuilder;
 pub use usvg;
@@ -194,11 +195,12 @@ pub fn to_pdf(
     page_options: PageOptions,
 ) -> Result<Vec<u8>> {
     let mut page = Page::new(tree.size());
+    let mut fontdb = Database::new();
     let mut stream_builder = page.builder();
-     krilla::svg::render_tree(tree, &mut stream_builder);
+     krilla::svg::render_tree(tree, &mut stream_builder, &mut fontdb);
     let stream = stream_builder.finish();
     let serialize_context = page.finish();
-    Ok(stream.serialize(serialize_context, tree.size()).finish())
+    Ok(stream.serialize(serialize_context, &fontdb, tree.size()).finish())
 }
 
 /// Convert a [Tree] into a [`Chunk`].
