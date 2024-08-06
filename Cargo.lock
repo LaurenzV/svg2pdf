@@ -865,7 +865,7 @@ dependencies = [
  "resvg",
  "siphasher",
  "skrifa 0.20.0 (git+https://github.com/LaurenzV/fontations?rev=0ed7955)",
- "subsetter 0.11.0 (git+https://github.com/LaurenzV/subsetter?rev=c178d05)",
+ "subsetter 0.11.0",
  "tiny-skia",
  "tiny-skia-path",
  "usvg",
@@ -1687,12 +1687,11 @@ checksum = "7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70948a3f0b778838c5fb4f"
 [[package]]
 name = "subsetter"
 version = "0.11.0"
-source = "git+https://github.com/typst/subsetter?rev=4e0058b#4e0058b4b9a0948a5f79894111948d95e59ba350"
 
 [[package]]
 name = "subsetter"
 version = "0.11.0"
-source = "git+https://github.com/LaurenzV/subsetter?rev=c178d05#c178d05c64f151df9166761d7b6b07bd25aa8716"
+source = "git+https://github.com/typst/subsetter?rev=4e0058b#4e0058b4b9a0948a5f79894111948d95e59ba350"
 
 [[package]]
 name = "svg2pdf"
