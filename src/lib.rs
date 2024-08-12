@@ -56,7 +56,7 @@ comprehensive list.
 mod render;
 mod util;
 
-use krilla::serialize::{SerializeSettings};
+use krilla::serialize::{SerializeSettings, SvgSettings};
 use std::fmt;
 use std::fmt::{Display, Formatter};
 use fontdb::Database;
@@ -197,12 +197,13 @@ pub fn to_pdf(
         hex_encode_binary_streams: false,
         compress_content_streams: true,
         no_device_cs: true,
+        svg_settings: SvgSettings::default(),
     });
 
     let mut page = document_builder.start_page(tree.size());
     let mut surface = page.surface();
     let mut fontdb = Database::new();
-     krilla::svg::render_tree(tree, &mut surface, &mut fontdb);
+     krilla::svg::render_tree(tree, SvgSettings::default(), &mut surface, &mut fontdb);
     surface.finish();
     page.finish();
 
