@@ -56,12 +56,11 @@ comprehensive list.
 mod render;
 mod util;
 
-use krilla::serialize::{PageSerialize, SerializerContext, SerializeSettings};
+use krilla::serialize::{SerializeSettings};
 use std::fmt;
 use std::fmt::{Display, Formatter};
 use fontdb::Database;
 use krilla::document::Document;
-use krilla::stream::StreamBuilder;
 pub use usvg;
 
 use crate::ConversionError::UnknownError;
@@ -194,10 +193,17 @@ pub fn to_pdf(
     conversion_options: ConversionOptions,
     page_options: PageOptions,
 ) -> Result<Vec<u8>> {
-    let mut document_builder = Document::new(SerializeSettings::default());
+    let mut document_builder = Document::new(SerializeSettings {
+        hex_encode_binary_streams: false,
+        compress_content_streams: true,
+        no_device_cs: true,
+    });
+
     let mut page = document_builder.start_page(tree.size());
+    let mut surface = page.surface();
     let mut fontdb = Database::new();
-     krilla::svg::render_tree(tree, &mut page, &mut fontdb);
+     krilla::svg::render_tree(tree, &mut surface, &mut fontdb);
+    surface.finish();
     page.finish();
 
     Ok(document_builder.finish(&fontdb))
