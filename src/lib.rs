@@ -202,12 +202,11 @@ pub fn to_pdf(
 
     let mut page = document_builder.start_page(tree.size());
     let mut surface = page.surface();
-    let mut fontdb = Database::new();
-     krilla::svg::render_tree(tree, SvgSettings::default(), &mut surface, &mut fontdb);
+    krilla::svg::render_tree(tree, SvgSettings::default(), &mut surface);
     surface.finish();
     page.finish();
 
-    Ok(document_builder.finish(&fontdb))
+    Ok(document_builder.finish())
 }
 
 /// Convert a [Tree] into a [`Chunk`].

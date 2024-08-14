@@ -865,7 +865,7 @@ dependencies = [
  "resvg",
  "siphasher",
  "skrifa 0.20.0 (git+https://github.com/LaurenzV/fontations?rev=0ed7955)",
- "subsetter 0.11.0",
+ "subsetter 0.1.1",
  "tiny-skia",
  "tiny-skia-path",
  "usvg",
@@ -1686,7 +1686,7 @@ checksum = "7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70948a3f0b778838c5fb4f"
 
 [[package]]
 name = "subsetter"
-version = "0.11.0"
+version = "0.1.1"
 
 [[package]]
 name = "subsetter"
@@ -1706,7 +1706,7 @@ dependencies = [
  "pdf-writer",
  "resvg",
  "siphasher",
- "subsetter 0.11.0 (git+https://github.com/typst/subsetter?rev=4e0058b)",
+ "subsetter 0.11.0",
  "tiny-skia",
  "ttf-parser 0.21.1",
  "unicode-properties",
