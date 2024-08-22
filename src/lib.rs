@@ -194,7 +194,7 @@ pub fn to_pdf(
     page_options: PageOptions,
 ) -> Result<Vec<u8>> {
     let mut document_builder = Document::new(SerializeSettings {
-        hex_encode_binary_streams: false,
+        ascii_compatible: false,
         compress_content_streams: true,
         no_device_cs: true,
         svg_settings: SvgSettings::default(),
