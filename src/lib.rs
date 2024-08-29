@@ -197,6 +197,7 @@ pub fn to_pdf(
         ascii_compatible: false,
         compress_content_streams: true,
         no_device_cs: true,
+        force_type3_fonts: false,
         svg_settings: SvgSettings::default(),
     });
 
