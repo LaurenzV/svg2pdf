@@ -56,11 +56,11 @@ comprehensive list.
 mod render;
 mod util;
 
-use krilla::serialize::{SerializeSettings, SvgSettings};
 use std::fmt;
 use std::fmt::{Display, Formatter};
 use fontdb::Database;
-use krilla::document::Document;
+use krilla::document::{Document, PageSettings};
+use krilla::{SerializeSettings, SvgSettings};
 pub use usvg;
 
 use crate::ConversionError::UnknownError;
@@ -193,17 +193,17 @@ pub fn to_pdf(
     conversion_options: ConversionOptions,
     page_options: PageOptions,
 ) -> Result<Vec<u8>> {
-    let mut document_builder = Document::new(SerializeSettings {
+    let settings = SerializeSettings {
         ascii_compatible: false,
         compress_content_streams: true,
         no_device_cs: true,
         force_type3_fonts: false,
         svg_settings: SvgSettings::default(),
-        force_type3_fonts: false,
         ignore_invalid_glyphs: false,
-    });
+    };
+    let mut document_builder = Document::new_with(settings);
 
-    let mut page = document_builder.start_page(tree.size());
+    let mut page = document_builder.start_page_with(PageSettings::with_size(tree.size().width(), tree.size().height()));
     let mut surface = page.surface();
     krilla::svg::render_tree(tree, SvgSettings::default(), &mut surface);
     surface.finish();
