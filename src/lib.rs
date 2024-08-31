@@ -199,6 +199,8 @@ pub fn to_pdf(
         no_device_cs: true,
         force_type3_fonts: false,
         svg_settings: SvgSettings::default(),
+        force_type3_fonts: false,
+        ignore_invalid_glyphs: false,
     });
 
     let mut page = document_builder.start_page(tree.size());
@@ -207,7 +209,7 @@ pub fn to_pdf(
     surface.finish();
     page.finish();
 
-    Ok(document_builder.finish())
+    Ok(document_builder.finish().unwrap())
 }
 
 /// Convert a [Tree] into a [`Chunk`].

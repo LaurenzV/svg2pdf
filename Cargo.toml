@@ -19,7 +19,7 @@ clap_complete = "4.4.3"
 clap_mangen = "0.2.14"
 fontdb = "0.21.0"
 image = { version = "0.25.1", default-features = false, features = ["jpeg", "png", "gif"] }
-miniz_oxide = "0.7"
+miniz_oxide = "0.8.0"
 once_cell = "1.18.0"
 oxipng = { version = "9", default-features = false, features = ["filetime", "parallel", "zopfli"] }
 pdf-writer = "0.10"

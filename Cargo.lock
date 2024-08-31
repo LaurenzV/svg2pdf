@@ -837,11 +837,13 @@ dependencies = [
  "flate2",
  "float-cmp",
  "fontdb",
+ "gif",
  "image",
  "miniz_oxide 0.8.0",
  "once_cell",
  "pdf-writer 0.10.0 (git+https://github.com/LaurenzV/pdf-writer?rev=34c991f5)",
  "resvg",
+ "rustybuzz",
  "siphasher",
  "skrifa",
  "subsetter 0.11.0 (git+https://github.com/typst/subsetter/?rev=67bde74)",
@@ -849,6 +851,8 @@ dependencies = [
  "tiny-skia-path",
  "usvg",
  "yoke",
+ "zune-jpeg",
+ "zune-png",
 ]
 
 [[package]]
@@ -1673,7 +1677,7 @@ dependencies = [
  "image",
  "krilla",
  "log",
- "miniz_oxide 0.7.4",
+ "miniz_oxide 0.8.0",
  "once_cell",
  "pdf-writer 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "resvg",
@@ -1694,7 +1698,7 @@ dependencies = [
  "clap_mangen",
  "fontdb",
  "log",
- "miniz_oxide 0.7.4",
+ "miniz_oxide 0.8.0",
  "pdf-writer 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "svg2pdf",
  "termcolor",
@@ -1830,8 +1834,7 @@ dependencies = [
 [[package]]
 name = "tiny-skia-path"
 version = "0.11.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9c9e7fc0c2e86a30b117d0462aa261b72b7a99b7ebd7deb3a14ceda95c5bdc93"
+source = "git+https://github.com/RazrFalcon/tiny-skia?rev=eec0a47#eec0a4701a8413759a3dd51b443b8851ce4c546a"
 dependencies = [
  "arrayref",
  "bytemuck",
@@ -2307,9 +2310,19 @@ dependencies = [
 
 [[package]]
 name = "zune-jpeg"
-version = "0.4.11"
+version = "0.4.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ec866b44a2a1fd6133d363f073ca1b179f438f99e7e5bfb1e33f7181facfe448"
+checksum = "16099418600b4d8f028622f73ff6e3deaabdff330fb9a2a131dea781ee8b0768"
 dependencies = [
  "zune-core",
+]
+
+[[package]]
+name = "zune-png"
+version = "0.4.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7d29c085769c6f29effea890f093120ac019375fdc789d2a496ba8ba96c77509"
+dependencies = [
+ "zune-core",
+ "zune-inflate",
 ]
